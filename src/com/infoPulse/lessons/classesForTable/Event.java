@@ -22,12 +22,12 @@ public class Event implements Serializable {
     private Service service;
 
     @Id
-    @Column(name = "event_date")
-    private Date eventDate;
+    @Column(name = "date")
+    private Date date;
 
 
-    @Column(name = "event_cost")
-    private float eventCost;
+    @Column(name = "cost")
+    private float cost;
 
 
     // Getters and Setters
@@ -49,19 +49,19 @@ public class Event implements Serializable {
         this.service = service;
     }
 
-    public Date getEventDate() {
-        return eventDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setEventDate(Date eventDate) {
-        this.eventDate = eventDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public float getEventCost() {
-        return eventCost;
+    public float getCost() {
+        return cost;
     }
 
-    public void setEventCost(float eventCost) {
-        this.eventCost = eventCost;
+    public void setCost(float cost) {
+        this.cost = cost;
     }
 }

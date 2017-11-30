@@ -25,7 +25,7 @@ public class CustomerServices implements Serializable {
     private Service service;
 
     @ManyToOne
-    @JoinColumn(name = "service_status_id", foreignKey = @ForeignKey(name = "fk_service_status_customer_services"))
+    @JoinColumn(name = "name", foreignKey = @ForeignKey(name = "fk_service_status_customer_services"))
     private ServiceStatus serviceStatus;
 
     // Constructors

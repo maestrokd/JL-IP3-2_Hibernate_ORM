@@ -10,16 +10,17 @@ import java.util.List;
 public class User {
 
     // Fields
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private int user_id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "user_id")
+//    private int user_id;
 
-    @Column(name = "user_login")
-    private String user_login;
+    @Id
+    @Column(name = "user_login", length = 50)
+    private String login;
 
     @Column(name = "user_password")
-    private  String user_password;
+    private  String password;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = false, mappedBy = "user")
     private List<Customer> customerList = new ArrayList<>();
@@ -30,37 +31,39 @@ public class User {
 
 
     // Getter and Setter
-    public int getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getUser_login() {
-        return user_login;
-    }
-
-    public void setUser_login(String user_login) {
-        this.user_login = user_login;
-    }
-
-    public String getUser_password() {
-        return user_password;
-    }
-
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
-    }
+//    public int getUser_id() {
+//        return user_id;
+//    }
+//
+//    public void setUser_id(int user_id) {
+//        this.user_id = user_id;
+//    }
 
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "user_id=" + user_id +
-                ", user_login='" + user_login + '\'' +
-                ", user_password='" + user_password + '\'' +
-                '}';
+    public String getLogin() {
+        return login;
     }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Customer> getCustomerList() {
+        return customerList;
+    }
+
+    public void setCustomerList(List<Customer> customerList) {
+        this.customerList = customerList;
+    }
+
+
 }

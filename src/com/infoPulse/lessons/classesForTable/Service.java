@@ -8,16 +8,17 @@ import java.util.*;
 public class Service {
 
     // Fields
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "service_id")
+//    private int serviceID;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "service_id")
-    private int serviceID;
+    @Column(name = "name", length = 50)
+    private String name;
 
-    @Column(name = "service_name")
-    private String serviceName;
-
-    @Column(name = "service_payroll")
-    private float servicePayroll;
+    @Column(name = "payroll")
+    private float payroll;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = false, mappedBy = "customer")
     private List<CustomerServices> customerServicesList = new ArrayList<>();
@@ -42,8 +43,8 @@ public class Service {
         Event event = new Event();
         event.setCustomer(customer);
         event.setService(this);
-        event.setEventDate(new Date());
-        event.setEventCost(this.servicePayroll);
+        event.setDate(new Date());
+        event.setCost(this.payroll);
         eventList.add(event);
         customer.getEventList().add(event);
     }
@@ -55,28 +56,30 @@ public class Service {
 
 
     // Getters and Setters
-    public int getServiceID() {
-        return serviceID;
+
+//    public int getServiceID() {
+//        return serviceID;
+//    }
+//
+//    public void setServiceID(int serviceID) {
+//        this.serviceID = serviceID;
+//    }
+
+
+    public String getName() {
+        return name;
     }
 
-    public void setServiceID(int serviceID) {
-        this.serviceID = serviceID;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public float getPayroll() {
+        return payroll;
     }
 
-    public void setServiceName(String serviseName) {
-        this.serviceName = serviseName;
-    }
-
-    public float getServicePayroll() {
-        return servicePayroll;
-    }
-
-    public void setServicePayroll(float servicePayroll) {
-        this.servicePayroll = servicePayroll;
+    public void setPayroll(float payroll) {
+        this.payroll = payroll;
     }
 
     public List<CustomerServices> getCustomerServicesList() {
@@ -95,8 +98,8 @@ public class Service {
         this.eventList = eventList;
     }
 
-    //
-//    // Methods
+
+    // Methods
 
 
 }

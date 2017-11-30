@@ -1,9 +1,7 @@
 package com.infoPulse.lessons.classesForTable;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -11,12 +9,13 @@ import java.util.Set;
 public class ServiceStatus {
 
     // Fields
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "service_status_id")
-    private int id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "service_status_id")
+//    private int id;
 
-    @Column(name = "service_status_name")
+    @Id
+    @Column(name = "name")
     private String name = "deactive";
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = false, mappedBy = "serviceStatus")
@@ -25,13 +24,13 @@ public class ServiceStatus {
 
     // Getter and Setter
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;
